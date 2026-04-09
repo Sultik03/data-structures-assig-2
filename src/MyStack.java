@@ -16,5 +16,5 @@ public class MyStack<T> {
     }
     public boolean isEmpty () { //returns whether stack is empty
         return list.isEmpty();
-    }
+    //
 }
