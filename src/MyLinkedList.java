@@ -223,6 +223,10 @@ public class MyLinkedList<T> implements MyList<T> {
         return size;
     }
 
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     @Override
     public Iterator<T> iterator() {
         return new Iterator<T>() {
