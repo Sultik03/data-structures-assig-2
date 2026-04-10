@@ -19,7 +19,7 @@ public class MyMeanHeap<T extends Comparable<T>> {
     private void heapifyUp (int index) {
         while (index > 0) {
             int parent = (index - 1) / 2;
-            if (heap.get(index).compareTo(hep.get(parent)) >= 0) {
+            if (heap.get(index).compareTo(heap.get(parent)) >= 0) {
                 break;
             }
             swap(index, parent);
@@ -28,7 +28,7 @@ public class MyMeanHeap<T extends Comparable<T>> {
     }
     public void heapifyDown(int index) {
         int size = heap.size();
-        wihle (true) {
+        while (true) {
             int left = 2 * index + 1;
             int right = 2 * index + 2;
             int smallest = index;
