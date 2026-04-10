@@ -1,4 +1,4 @@
-public class MyMeanHeap<T extends Comparable<T>> {
+public class MyMinHeap<T extends Comparable<T>> {
     private MyArrayList<T> heap = new MyArrayList<>();
     public void add (T value) {
         heap.add(value);
@@ -6,15 +6,15 @@ public class MyMeanHeap<T extends Comparable<T>> {
     }
     public T remove() {
         T root = heap.get(0);
-        heap.add(0, heap.get(heap.size() - 1));
+        heap.set(0, heap.get(heap.size() - 1));
         heap.remove(heap.size() - 1);
         heapifyDown(0);
         return root;
     }
     private void swap (int i, int j) {
         T temp = heap.get(i);
-        heap.add(i, heap.get(j));
-        heap.add(j, temp);
+        heap.set(i, heap.get(j));
+        heap.set(j, temp);
     }
     private void heapifyUp (int index) {
         while (index > 0) {

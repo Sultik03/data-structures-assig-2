@@ -27,6 +27,9 @@ public class MyArrayList<T> implements MyList<T> {
         if (size == data.length) {
             resize();
         }
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
         for (int i = size; i > index; i--) {
             data[i] = data[i - 1];
         }
@@ -35,6 +38,9 @@ public class MyArrayList<T> implements MyList<T> {
     }
     @Override
     public T get(int index) {
+        if  (index < 0 || index >= size) { // bounds checking
+            throw new IndexOutOfBoundsException();
+        }
         return (T) data[index]; //returns the element at index casting it down to T
     }
     @Override
@@ -42,6 +48,9 @@ public class MyArrayList<T> implements MyList<T> {
         T removed = (T) data[index];
         for (int i = index; i < size - 1; i++) { //remove element by index
             data[i] = data[i + 1];
+        }
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
         }
         size--;
         System.out.println(removed);
@@ -64,7 +73,7 @@ public class MyArrayList<T> implements MyList<T> {
     }
 
     @Override
-    public void sort() { //simple bubble sort
+    public void sort() {//simple bubble sort
         for (int i = 0; i < size - 1; i++) {
             for (int j = 0; j < size - i - 1; j++) {
                 Comparable a = (Comparable) data[j];
@@ -119,6 +128,9 @@ public class MyArrayList<T> implements MyList<T> {
     }
     @Override
     public void set(int index, T item) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException();
+        }
         data[index] = item; //replace element at index
     }
     @Override
@@ -131,10 +143,16 @@ public class MyArrayList<T> implements MyList<T> {
     }
     @Override
     public T getFirst() {
+        if (isEmpty()) {
+            return null;
+        }
         return (T) data[0]; //get first elements
     }
     @Override
     public T getLast() {
+        if (isEmpty()) {
+            return null;
+        }
         return (T) data[size - 1]; // get last element
     }
     @Override
