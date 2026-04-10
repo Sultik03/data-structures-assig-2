@@ -1,0 +1,16 @@
+# Assignment 2 — Data Structures in Java
+
+Custom implementations of ArrayList, LinkedList, Stack, Queue, and MinHeap without java.util.* (except Iterator).
+
+## Files
+MyList.java | Interface for all list implementations
+MyArrayList.java | Dynamic array-backed list 
+MyLinkedList.java | Doubly linked list 
+MyStack.java | LIFO stack — backed by MyArrayList
+MyQueue.java | FIFO queue — backed by MyLinkedList
+MyMinHeap.java | Min-heap — backed by MyArrayList
+
+## Design Choices
+- Stack uses MyArrayList — O(1) access to last element for push/pop
+- Queue uses MyLinkedList — O(1) insert at tail and remove from head
+- MinHeap uses MyArrayList — index arithmetic maps naturally to parent/child nodes
